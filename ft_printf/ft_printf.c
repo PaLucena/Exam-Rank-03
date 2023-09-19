@@ -1,6 +1,6 @@
 #include <stdarg.h>
-#include <stdio.h>
 #include <unistd.h>
+#include <stdio.h>
 
 void	ft_putstr(char *str, int *c)
 {
@@ -26,35 +26,28 @@ void	ft_putdigit(long long int n, int base, int *c)
 	*c += write(1, &hex[n % base], 1);
 }
 
-int	ft_printf(char *param, ...)
+int	ft_printf(char *arg, ...)
 {
-	va_list	args;
+	va_list	params;
 	int		c = 0;
 	int		i = -1;
 
-	va_start(args, param);
-	while (param[++i])
+	va_start(params, arg);
+	while (arg[++i])
 	{
-		if (param[i] == '%' && (param[i + 1] == 's' || param[i + 1] == 'd' || param[i + 1] == 'x'))
+		if (arg[i] == '%' && (arg[i + 1] == 's' || arg[i + 1] == 'd' || arg[i + 1] == 'x'))
 		{
 			i++;
-			if (param[i] == 's')
-				ft_putstr(va_arg(args, char *), &c);
-			else if (param[i] == 'd')
-				ft_putdigit(va_arg(args, int), 10, &c);
-			else if (param[i] == 'x')
-				ft_putdigit(va_arg(args, unsigned int), 16, &c);
+			if (arg[i] == 's')
+				ft_putstr(va_arg(params, char *), &c);
+			else if (arg[i] == 'd')
+				ft_putdigit(va_arg(params, int), 10, &c);
+			else if (arg[i] == 'x')
+				ft_putdigit(va_arg(params, unsigned int), 16, &c);
 		}
 		else
-			c += write(1, &param[i], 1);
+			c += write(1, &arg[i], 1);
 	}
-	va_end((args));
+	va_end(params);
 	return (c);
 }
-
-/* int	main(void)
-{
-	int	a = printf("aaa\n%s, %d, %x\n", "Las patatas", -123456, -25000);
-	int	b = ft_printf("aaa\n%s, %d, %x\n", "Las patatas", -123456, -25000);
-	printf("\na: %i, b: %i\n", a, b);
-} */
