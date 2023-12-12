@@ -1,5 +1,5 @@
 # Exam-Rank-03
-These are the exercises I've done as preparation for the first exam  of 42 common core using [42_EXAM](https://github.com/jcluzet/42_EXAM)
+These are the exercises I've done as preparation for the second exam of 42 Common Core using [42_EXAM](https://github.com/jcluzet/42_EXAM)
 
 The command for the exam to deploy in is `bash -c "$(curl https://grademe.fr)"`
 
