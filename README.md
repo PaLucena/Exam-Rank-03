@@ -3,7 +3,7 @@ These are the exercises I've done as preparation for the first exam  of 42 commo
 
 The command for the exam to deploy in is `bash -c "$(curl https://grademe.fr)"`
 
-<h3 align="center">Level 0:</h3>
+<h3 align="center">Exercises:</h3>
 <table align="center">
   <tr>
     <td align="center" width="200"><b>Exercise</b></td>
